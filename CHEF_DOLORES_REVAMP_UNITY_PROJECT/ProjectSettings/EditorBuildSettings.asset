@@ -4,4 +4,7 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/_REM_CHEF_DOLORES_PACKAGE/Scenes/Main_Menu_sc.unity
+    guid: f77bc086cf91a7047812de218ce35eca
