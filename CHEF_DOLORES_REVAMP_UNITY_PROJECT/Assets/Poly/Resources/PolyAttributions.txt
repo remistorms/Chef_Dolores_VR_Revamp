@@ -1,0 +1,37 @@
+This project uses the following items from Poly (http://poly.google.com):
+
+Title: Egg
+Author: Poly by Google
+URL: https://poly.google.com/view/1d6ZyxLFuIi
+License: Creative Commons CC-BY
+https://creativecommons.org/licenses/by/3.0/legalcode
+
+Title: Green Pepper
+Author: Poly by Google
+URL: https://poly.google.com/view/5d6zv4Ow2tO
+License: Creative Commons CC-BY
+https://creativecommons.org/licenses/by/3.0/legalcode
+
+Title: Hot Sauce
+Author: Izzy Parkinson
+URL: https://poly.google.com/view/e8_FzobmqaO
+License: Creative Commons CC-BY
+https://creativecommons.org/licenses/by/3.0/legalcode
+
+Title: sammich
+Author: Jeff Larson
+URL: https://poly.google.com/view/9TD15OhRzW9
+License: Creative Commons CC-BY
+https://creativecommons.org/licenses/by/3.0/legalcode
+
+Title: Tomato
+Author: Poly by Google
+URL: https://poly.google.com/view/2USMNc7s3zE
+License: Creative Commons CC-BY
+https://creativecommons.org/licenses/by/3.0/legalcode
+
+Title: Tomato slice
+Author: Poly by Google
+URL: https://poly.google.com/view/05bvoxA15L1
+License: Creative Commons CC-BY
+https://creativecommons.org/licenses/by/3.0/legalcode
