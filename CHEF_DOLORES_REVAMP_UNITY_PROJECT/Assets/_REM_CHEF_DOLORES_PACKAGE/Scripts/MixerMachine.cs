@@ -18,6 +18,8 @@ public class MixerMachine : MonoBehaviour {
 	public float firstSlotMutl, secondSlotMult,thirdSlotMult, fourthSlotMult, fifthSlotMult;
 	public float totalPoints = 0;
 
+	public Color disabledColor, enabledColor;
+
 	//UI STUFF
 	[SerializeField]
 	Image[] itemSlotsUI;
@@ -107,12 +109,23 @@ public class MixerMachine : MonoBehaviour {
 	void MeshButtonCheck(){
 		if (ingredientsInsideMachine.Count >= 2 && canMix == true) {
 			buttonMesh.GetComponent<Collider> ().enabled = true;
-			buttonMesh.GetComponent<Renderer> ().material.color = Color.green;
+			//buttonMesh.GetComponent<Renderer> ().material.color = enabledColor;
+
+			DOTween.To (
+				() => buttonMesh.GetComponent<Renderer> ().material.color,
+				x => buttonMesh.GetComponent<Renderer> ().material.color = x,
+				enabledColor,
+				0.25f);
 		} 
 		else 
 		{
 			buttonMesh.GetComponent<Collider> ().enabled = false;
-			buttonMesh.GetComponent<Renderer> ().material.color = Color.grey;
+			//buttonMesh.GetComponent<Renderer> ().material.color = disabledColor;
+			DOTween.To (
+				() => buttonMesh.GetComponent<Renderer> ().material.color,
+				x => buttonMesh.GetComponent<Renderer> ().material.color = x,
+				disabledColor,
+				0.25f);
 		}
 	}
 
