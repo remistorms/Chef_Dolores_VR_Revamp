@@ -8,6 +8,7 @@ public class Ingredient : MonoBehaviour {
 	public int points;
 	public Sprite icon;
 	public GameObject outlineMesh;
+	public float timeToProcess;
 
 	void OnEnable(){
 		HideOutline ();
