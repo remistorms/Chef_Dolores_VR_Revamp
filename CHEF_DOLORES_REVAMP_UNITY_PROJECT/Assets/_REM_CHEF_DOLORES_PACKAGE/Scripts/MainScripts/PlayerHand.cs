@@ -91,12 +91,27 @@ public class PlayerHand : MonoBehaviour {
 			0.5f);
 	}
 
-	void AnimatesHandReturn(){
+	public void HoverOverButton(){
+		DOTween.To(
+			()=> handMesh.transform.position, 
+			x=> handMesh.transform.position = x,
+			MixerMachine.instance.buttonHoverPosition.position,
+			0.5f);
+	}
+
+	public void AnimatesHandReturn(){
 		DOTween.To (
 			() => handMesh.transform.localPosition, 
 			x => handMesh.transform.localPosition = x,
 			Vector3.zero,
 			0.5f);
+	}
+
+	public void GenericHandAnimation(Transform new_parent)
+	{
+		handMesh.transform.SetParent (new_parent);
+		AnimatesHandReturn ();
+
 	}
 
 }

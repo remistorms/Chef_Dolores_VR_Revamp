@@ -74,8 +74,9 @@ public class RemCaster : MonoBehaviour {
 			PlayerHand.instance.HoldItem (obj_in_sight);
 		}
 
-		//Player clicks-on mouse when holding an item in hand
-		if (Input.GetMouseButtonDown(0) && PlayerHand.instance.held_item != null && obj_in_sight.tag == "MixerMachine") {
+		//Player clicks-on mouse when holding an item in hand, also checks if machines is not maxed out
+		if (Input.GetMouseButtonDown(0) && PlayerHand.instance.held_item != null && obj_in_sight.tag == "MixerMachine" && MixerMachine.instance.isMaxedOut == false) {
+
 			PlayerHand.instance.DropItem ();
 		}
 			

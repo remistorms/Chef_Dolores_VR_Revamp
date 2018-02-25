@@ -12,6 +12,7 @@ public class EventManager : MonoBehaviour {
 	public Action EVT_Enemy_Destroyed;
 	public Action<GameObject> EVT_LookingAtObject;
 	public Action EVT_MouseClick;
+	public Action EVT_HoverOverButton;
 
 	void Awake () 
 	{
@@ -48,6 +49,14 @@ public class EventManager : MonoBehaviour {
 		{
 			Debug.Log("EVT_Enemy_Destroyed has been triggered");
 			EVT_Enemy_Destroyed ();	
+		}
+	}
+
+	public void Fire_EVT_HoverOverButton(){
+		if (EVT_HoverOverButton != null) 
+		{
+			Debug.Log("Fire_EVT_HoverOverButton");
+			EVT_HoverOverButton ();
 		}
 	}
 
