@@ -30,8 +30,12 @@ public class MixerMachine : MonoBehaviour {
 		gameObject.tag = "MixerMachine";
 		foreach (var item in itemSlotsUI) {
 			item.GetComponent<Image> ().enabled = false;
-			CheckMachineButton ();
+
 		}
+		MeshButtonCheck ();
+	}
+
+	void FixedUpdate(){
 		MeshButtonCheck ();
 	}
 
@@ -50,8 +54,7 @@ public class MixerMachine : MonoBehaviour {
 
 			//Checks if machine is full
 			currentSlot ++;
-		CheckMachineButton ();
-		MeshButtonCheck ();
+			MeshButtonCheck ();
 			if (currentSlot == 5) {
 				isMaxedOut = true;
 				MixIngredients ();
@@ -60,35 +63,19 @@ public class MixerMachine : MonoBehaviour {
 
 	// METHOD TO MIX INGREDIENTS
 	public void MixIngredients(){
-		StartCoroutine (MixIngredientsRoutine ());
+
+		if (canMix) {
+			StartCoroutine (MixIngredientsRoutine ());
+		} else {
+			Debug.Log ("Mixer is Not ready");
+		}
+
 	}
 
-	void CheckMachineButton(){
-		Debug.Log (ingredientsInsideMachine.Count.ToString() + " ingredients inside machine");
-		if (ingredientsInsideMachine.Count == 0) {
-			//machineButton.interactable = false;
-			panelCanvas.blocksRaycasts = false;
-		} else if (ingredientsInsideMachine.Count >= 2) {
-			//machineButton.interactable = true;
-			panelCanvas.blocksRaycasts = true;
-		}
-			
-	}
-
-	void MeshButtonCheck(){
-		if (ingredientsInsideMachine.Count >= 2) {
-			buttonMesh.GetComponent<Collider> ().enabled = true;
-			buttonMesh.GetComponent<Renderer> ().material.color = Color.green;
-		} 
-		else 
-		{
-			buttonMesh.GetComponent<Collider> ().enabled = false;
-			buttonMesh.GetComponent<Renderer> ().material.color = Color.grey;
-		}
-	}
 
 	//MIX INGREEDIENTS ROUTINE
 	IEnumerator	MixIngredientsRoutine(){
+
 		canMix = false;
 		float multiplyer = 8;
 		List <float> sltPnts = new List<float>();
@@ -108,6 +95,43 @@ public class MixerMachine : MonoBehaviour {
 		Debug.Log ("Total Waiting time: " + totalProcessTime.ToString());
 		yield return new WaitForSeconds (totalProcessTime);
 		Debug.Log ("DONE");
+
+		//CLEAR INGREDIENTS
+		EmptyMachine();
+
+		canMix = true;
+
+	}
+
+	//Check usability of button
+	void MeshButtonCheck(){
+		if (ingredientsInsideMachine.Count >= 2 && canMix == true) {
+			buttonMesh.GetComponent<Collider> ().enabled = true;
+			buttonMesh.GetComponent<Renderer> ().material.color = Color.green;
+		} 
+		else 
+		{
+			buttonMesh.GetComponent<Collider> ().enabled = false;
+			buttonMesh.GetComponent<Renderer> ().material.color = Color.grey;
+		}
+	}
+
+	void EmptyMachine(){
+		
+		foreach (var item in ingredientsInsideMachine) {
+			Destroy (item);
+		}
+		//clear ingredients from array
+		ingredientsInsideMachine.Clear();
+
+		//delete sprites from UI
+
+		foreach (var item in itemSlotsUI) {
+			item.GetComponent<Image> ().enabled = false;
+		}
+		//resets current slot
+		currentSlot = 0;
+		totalPoints = 0;
 
 	}
 }
