@@ -325,9 +325,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3336ee6711507a5408fb823cc0fb39af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  esAtunDolores: 1
   name: Rice
-  points: 100
-  timeToProcess: 5
+  points: 1000
+  timeToProcess: 10
   icon: {fileID: 21300026, guid: 630e56eebd237e04693124509e918e58, type: 3}
 --- !u!135 &29467788
 SphereCollider:
@@ -629,6 +630,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26615a77aafacbd4eb1eda12aea5e58e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  multipicadores: 030000000200000001000000fffffffffeffffff
   inputPoint: {fileID: 1819870737}
   ingredientsInsideMachine: []
   currentSlot: 0
@@ -980,6 +982,75 @@ Transform:
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: 694d234ce855b75458eb9f0439e2ba0e, type: 3}
   m_PrefabInternal: {fileID: 1064907466}
+--- !u!1 &166817226
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 166817227}
+  - component: {fileID: 166817229}
+  - component: {fileID: 166817228}
+  m_Layer: 0
+  m_Name: Image
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &166817227
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 166817226}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.0010693435}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 306139041}
+  m_Father: {fileID: 748641319}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -0.000029848403, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &166817228
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 166817226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 21300000, guid: 7f231635cded26b4f861089f1339ecc7, type: 3}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+--- !u!222 &166817229
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 166817226}
 --- !u!1001 &171702966
 Prefab:
   m_ObjectHideFlags: 0
@@ -993,7 +1064,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4415678752242690, guid: 73e5e4dc70a13b24a9432600f1fd1d6d, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0.00205
+      value: 0.00161
       objectReference: {fileID: 0}
     - target: {fileID: 4415678752242690, guid: 73e5e4dc70a13b24a9432600f1fd1d6d, type: 2}
       propertyPath: m_LocalPosition.z
@@ -1041,6 +1112,11 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 0.007518426
       objectReference: {fileID: 0}
+    - target: {fileID: 114678943050967706, guid: 73e5e4dc70a13b24a9432600f1fd1d6d,
+        type: 2}
+      propertyPath: dishPointsLabel
+      value: 
+      objectReference: {fileID: 306139042}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 73e5e4dc70a13b24a9432600f1fd1d6d, type: 2}
   m_IsPrefabParent: 0
@@ -1589,6 +1665,80 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 292740067}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &306139040
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 306139041}
+  - component: {fileID: 306139043}
+  - component: {fileID: 306139042}
+  m_Layer: 0
+  m_Name: Text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &306139041
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 306139040}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 166817227}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: -5}
+  m_SizeDelta: {x: -100, y: -60}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &306139042
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 306139040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 0576bc1ec1d3264499519e89ea242efe, type: 3}
+    m_FontSize: 14
+    m_FontStyle: 0
+    m_BestFit: 1
+    m_MinSize: 10
+    m_MaxSize: 300
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: <size=25><color=#000000>500</color></size> PTS
+--- !u!222 &306139043
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 306139040}
 --- !u!4 &325140710 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: 66c8073fe6f21e545a1b5441fc8122f1, type: 3}
@@ -1645,12 +1795,12 @@ Prefab:
     - target: {fileID: 114879341261927664, guid: c5b5f7e3f6401f24aa22ef108e524625,
         type: 2}
       propertyPath: points
-      value: 5
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 114879341261927664, guid: c5b5f7e3f6401f24aa22ef108e524625,
         type: 2}
       propertyPath: timeToProcess
-      value: 5
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c5b5f7e3f6401f24aa22ef108e524625, type: 2}
@@ -2307,9 +2457,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3336ee6711507a5408fb823cc0fb39af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  esAtunDolores: 0
   name: Rice
-  points: 100
-  timeToProcess: 5
+  points: 60
+  timeToProcess: 0.5
   icon: {fileID: 21300012, guid: 630e56eebd237e04693124509e918e58, type: 3}
 --- !u!135 &578782690
 SphereCollider:
@@ -2639,9 +2790,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3336ee6711507a5408fb823cc0fb39af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: Rice
+  esAtunDolores: 0
+  name: papas
   points: 100
-  timeToProcess: 5
+  timeToProcess: 0.5
   icon: {fileID: 21300004, guid: 630e56eebd237e04693124509e918e58, type: 3}
 --- !u!135 &741615579
 SphereCollider:
@@ -2679,6 +2831,100 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &748641318
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 748641319}
+  - component: {fileID: 748641322}
+  - component: {fileID: 748641321}
+  - component: {fileID: 748641320}
+  m_Layer: 0
+  m_Name: Canvas
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &748641319
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 748641318}
+  m_LocalRotation: {x: 0.17147356, y: 6.3948846e-14, z: 0.000000020441156, w: 0.9851887}
+  m_LocalPosition: {x: 0, y: 0, z: -0.476}
+  m_LocalScale: {x: 0.0020940024, y: 0.0025, z: 0.0025}
+  m_Children:
+  - {fileID: 166817227}
+  m_Father: {fileID: 1308600514}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 19.747002, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -0, y: 0.257}
+  m_SizeDelta: {x: 512, y: 128}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &748641320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 748641318}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1301386320, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreReversedGraphics: 1
+  m_BlockingObjects: 0
+  m_BlockingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+--- !u!114 &748641321
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 748641318}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1980459831, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_UiScaleMode: 0
+  m_ReferencePixelsPerUnit: 100
+  m_ScaleFactor: 1
+  m_ReferenceResolution: {x: 800, y: 600}
+  m_ScreenMatchMode: 0
+  m_MatchWidthOrHeight: 0
+  m_PhysicalUnit: 3
+  m_FallbackScreenDPI: 96
+  m_DefaultSpriteDPI: 96
+  m_DynamicPixelsPerUnit: 1
+--- !u!223 &748641322
+Canvas:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 748641318}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 2
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 0
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_AdditionalShaderChannelsFlag: 0
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_TargetDisplay: 0
 --- !u!1 &749670175
 GameObject:
   m_ObjectHideFlags: 0
@@ -4055,6 +4301,11 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1304968763}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &1308600514 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4415678752242690, guid: 73e5e4dc70a13b24a9432600f1fd1d6d,
+    type: 2}
+  m_PrefabInternal: {fileID: 171702966}
 --- !u!114 &1308600515 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114678943050967706, guid: 73e5e4dc70a13b24a9432600f1fd1d6d,
@@ -4211,8 +4462,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3336ee6711507a5408fb823cc0fb39af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  esAtunDolores: 1
   name: Rice
-  points: 100
+  points: 250
   timeToProcess: 5
   icon: {fileID: 21300020, guid: 630e56eebd237e04693124509e918e58, type: 3}
 --- !u!135 &1380754795
@@ -4331,9 +4583,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3336ee6711507a5408fb823cc0fb39af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  esAtunDolores: 1
   name: Rice
-  points: 100
-  timeToProcess: 5
+  points: 500
+  timeToProcess: 10
   icon: {fileID: 21300024, guid: 630e56eebd237e04693124509e918e58, type: 3}
 --- !u!135 &1392767400
 SphereCollider:
@@ -4551,9 +4804,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3336ee6711507a5408fb823cc0fb39af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  esAtunDolores: 0
   name: Rice
-  points: 5
-  timeToProcess: 5
+  points: 150
+  timeToProcess: 0.5
   icon: {fileID: 21300010, guid: 630e56eebd237e04693124509e918e58, type: 3}
 --- !u!135 &1472969782
 SphereCollider:
@@ -4790,9 +5044,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3336ee6711507a5408fb823cc0fb39af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  esAtunDolores: 0
   name: Rice
-  points: 100
-  timeToProcess: 5
+  points: 10
+  timeToProcess: 0.5
   icon: {fileID: 21300018, guid: 630e56eebd237e04693124509e918e58, type: 3}
 --- !u!135 &1504779135
 SphereCollider:
@@ -4972,9 +5227,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3336ee6711507a5408fb823cc0fb39af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  esAtunDolores: 0
   name: Rice
-  points: 100
-  timeToProcess: 5
+  points: 50
+  timeToProcess: 0.5
   icon: {fileID: 21300016, guid: 630e56eebd237e04693124509e918e58, type: 3}
 --- !u!135 &1565462309
 SphereCollider:
@@ -5512,6 +5768,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3336ee6711507a5408fb823cc0fb39af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  esAtunDolores: 1
   name: Rice
   points: 100
   timeToProcess: 5
@@ -5953,9 +6210,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3336ee6711507a5408fb823cc0fb39af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  esAtunDolores: 0
   name: Rice
-  points: 100
-  timeToProcess: 5
+  points: 5
+  timeToProcess: 0.5
   icon: {fileID: 21300002, guid: 630e56eebd237e04693124509e918e58, type: 3}
 --- !u!135 &1767305072
 SphereCollider:
@@ -6143,9 +6401,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3336ee6711507a5408fb823cc0fb39af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  esAtunDolores: 0
   name: Rice
-  points: 100
-  timeToProcess: 5
+  points: 15
+  timeToProcess: 0.5
   icon: {fileID: 21300014, guid: 630e56eebd237e04693124509e918e58, type: 3}
 --- !u!135 &1843260682
 SphereCollider:
@@ -6336,9 +6595,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3336ee6711507a5408fb823cc0fb39af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  esAtunDolores: 0
   name: Rice
-  points: 100
-  timeToProcess: 5
+  points: 20
+  timeToProcess: 0.5
   icon: {fileID: 21300008, guid: 630e56eebd237e04693124509e918e58, type: 3}
 --- !u!135 &1855800000
 SphereCollider:
@@ -6732,9 +6992,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3336ee6711507a5408fb823cc0fb39af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  esAtunDolores: 0
   name: 
-  points: 100
-  timeToProcess: 5
+  points: 200
+  timeToProcess: 0.5
   icon: {fileID: 21300000, guid: 630e56eebd237e04693124509e918e58, type: 3}
 --- !u!135 &1998852277
 SphereCollider:
@@ -6852,9 +7113,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3336ee6711507a5408fb823cc0fb39af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  esAtunDolores: 0
   name: Rice
-  points: 100
-  timeToProcess: 5
+  points: -100
+  timeToProcess: 0.5
   icon: {fileID: 21300006, guid: 630e56eebd237e04693124509e918e58, type: 3}
 --- !u!135 &2003189630
 SphereCollider:

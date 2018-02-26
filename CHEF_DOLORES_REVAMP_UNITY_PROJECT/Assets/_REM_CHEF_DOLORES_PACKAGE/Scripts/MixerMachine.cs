@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class MixerMachine : MonoBehaviour {
 
+	public int[] multipicadores = new int[4];
+
 	public static MixerMachine instance;
 	public Transform inputPoint;
 	public List<GameObject> ingredientsInsideMachine; 
@@ -107,15 +109,8 @@ public class MixerMachine : MonoBehaviour {
 		float totalProcessTime = 0f;
 		recipiesReference.GetIngredients ();
 
-		//Get points
-		for (int i = 0; i < ingredientsInsideMachine.Count; i++) 
-		{
-			totalProcessTime += ingredientsInsideMachine [i].GetComponent<Ingredient> ().timeToProcess;
-			sltPnts.Add(ingredientsInsideMachine[i].GetComponent<Ingredient>().points * multiplyer);
-			Debug.Log ("multiplier = " + multiplyer );
-			multiplyer = multiplyer / 2;
-			totalPoints += sltPnts [i];
-		}
+
+
 
 		//START ANIMATIONS and show UI
 		machineController.ShakeMachine();
@@ -129,9 +124,10 @@ public class MixerMachine : MonoBehaviour {
 		yield return new WaitForSeconds (totalProcessTime);
 
 		//HERE GOES THE CODE TO MAKE THE DISJ AND PUT IT ON BONE
+		GetPoints();
 		finishedDishReference.CreateDish(ingredientsInsideMachine[1].name);
 
-
+	
 		machineController.DeliverPlate ();
 
 
@@ -187,5 +183,62 @@ public class MixerMachine : MonoBehaviour {
 
 	}
 
+
+	public void GetPoints(){
+
+
+		//Debug.Log ("ingredients inside machine:" + ingredientsInsideMachine.Count);
+
+		switch (ingredientsInsideMachine.Count) {
+
+			
+			case 2:
+			totalPoints = (ingredientsInsideMachine [0].GetComponent<Ingredient> ().points * multipicadores[0]) +
+				(ingredientsInsideMachine [1].GetComponent<Ingredient> ().points * multipicadores[1]);
+			Debug.Log ("Fired case 2");
+			break;
+
+			case 3:
+			totalPoints = (ingredientsInsideMachine [0].GetComponent<Ingredient> ().points * multipicadores[0]) +
+				(ingredientsInsideMachine [1].GetComponent<Ingredient> ().points * multipicadores[1]) +
+				(ingredientsInsideMachine [2].GetComponent<Ingredient> ().points * multipicadores[2]);
+			Debug.Log ("Fired case 3");
+			break;
+
+			case 4:
+			totalPoints = (ingredientsInsideMachine [0].GetComponent<Ingredient> ().points * multipicadores[0]) +
+				(ingredientsInsideMachine [1].GetComponent<Ingredient> ().points * multipicadores[1]) +
+				(ingredientsInsideMachine [2].GetComponent<Ingredient> ().points * multipicadores[2]) +
+				(ingredientsInsideMachine [3].GetComponent<Ingredient> ().points * multipicadores[3]);
+			Debug.Log ("Fired case 4");
+			break;
+
+			case 5:
+			totalPoints = (ingredientsInsideMachine [0].GetComponent<Ingredient> ().points * multipicadores[0]) +
+				(ingredientsInsideMachine [1].GetComponent<Ingredient> ().points * multipicadores[1]) +
+				(ingredientsInsideMachine [2].GetComponent<Ingredient> ().points * multipicadores[2]) +
+				(ingredientsInsideMachine [3].GetComponent<Ingredient> ().points * multipicadores[3]) +
+				(ingredientsInsideMachine [4].GetComponent<Ingredient> ().points * multipicadores[4]);
+			Debug.Log ("Fired case 5");
+			break;
+
+			default:
+			break;
+		}
+
+
+		totalPoints = Mathf.RoundToInt (totalPoints);
+		Debug.Log ("getting points.... calculating..... points = " + totalPoints);
+
+		//THIS GOES IN CASE SOMETHING BREAKS
+		/*for (int i = 0; i < ingredientsInsideMachine.Count; i++) 
+		{
+			totalProcessTime += ingredientsInsideMachine [i].GetComponent<Ingredient> ().timeToProcess;
+			sltPnts.Add(ingredientsInsideMachine[i].GetComponent<Ingredient>().points * multiplyer);
+			Debug.Log ("multiplier = " + multiplyer );
+			multiplyer = multiplyer / 2;
+			totalPoints += sltPnts [i];
+		}*/
+	}
 
 }

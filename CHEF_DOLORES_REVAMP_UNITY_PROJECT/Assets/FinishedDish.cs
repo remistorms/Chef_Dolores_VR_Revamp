@@ -7,7 +7,11 @@ public class FinishedDish : MonoBehaviour {
 
 	public float dishPoints;
 	float sum = 0;
+	public bool containsTuna;
 	public GameObject hamburguesa, sandwich, ensalada, tortitasDePapa, jitomateRelleno, bolasDeArroz;
+	public Text dishPointsLabel;
+
+	public int[] multipicadores;
 
 	void Awake(){
 		DisableAllDishes ();
@@ -21,9 +25,15 @@ public class FinishedDish : MonoBehaviour {
 		SelectMain(mainIngredient);
 
 		//Set the value
-		GetDishValue();
+		if (CheckForTuna() == true) {
+			dishPoints = MixerMachine.instance.totalPoints;
+		} else {
+			dishPoints = 0;
+		}
 
 		//Display Text in UI Canvas
+		
+		dishPointsLabel.text = "<size=25><color=#0096ff>"+dishPoints + "</color></size>" + "PTS";
 
 	}
 
@@ -57,7 +67,7 @@ public class FinishedDish : MonoBehaviour {
 			break;
 
 		case "papas":
-			hamburguesa.SetActive (true);
+			tortitasDePapa.SetActive (true);
 			break;
 
 		default:
@@ -67,10 +77,22 @@ public class FinishedDish : MonoBehaviour {
 	}
 
 	void GetDishValue(){
-		for (int i = 0; i < MixerMachine.instance.ingredientsInsideMachine.Count; i++) {
-			sum = sum + MixerMachine.instance.ingredientsInsideMachine [i].GetComponent<Ingredient> ().points;
-		}
-		dishPoints = sum;
-	}
 
+		int totalIngredients = MixerMachine.instance.ingredientsInsideMachine.Count;
+	}
+			
+	bool CheckForTuna(){
+		
+		foreach (var item in MixerMachine.instance.ingredientsInsideMachine) {
+			if (item.GetComponent<Ingredient> ().esAtunDolores) {
+				containsTuna = true;
+				return containsTuna;
+			} else {
+				containsTuna = false;
+			}
+
+		}
+
+		return containsTuna;
+	}
 }

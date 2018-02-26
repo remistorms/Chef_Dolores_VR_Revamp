@@ -6,6 +6,8 @@ using DG.Tweening;
 [RequireComponent(typeof(SphereCollider))]
 public class Ingredient : MonoBehaviour {
 
+	public bool esAtunDolores = false;
+
 	public string name;
 	public int points;
 	public float timeToProcess;
@@ -27,6 +29,7 @@ public class Ingredient : MonoBehaviour {
 		myCollider.center = new Vector3 (0, 0.5f, 0);
 		HideOutline ();
 		gameObject.layer = 8;
+
 	}
 
 	void FixedUpdate(){
