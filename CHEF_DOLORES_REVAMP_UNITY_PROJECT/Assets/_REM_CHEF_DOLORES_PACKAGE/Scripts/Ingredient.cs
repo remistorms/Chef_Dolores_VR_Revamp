@@ -23,6 +23,7 @@ public class Ingredient : MonoBehaviour {
 	void OnEnable(){
 
 		name = this.gameObject.name;
+		this.tag = "ingredient";
 		originalScale = transform.localScale;
 		myCollider = GetComponent<SphereCollider> ();
 		myCollider.radius = 0.5f;
