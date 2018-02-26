@@ -32,7 +32,6 @@ public class ClickHandler : MonoBehaviour {
 					case "machine":
 					break;
 
-<<<<<<< HEAD
 					case "FinishedDish":
 					//Debug.Log ("Player has clicked on MixerMachine; Object in hand=" + hasItem.ToString());
 					//IF HAS ITEM; PLACE IT ON MACHINE
@@ -42,8 +41,6 @@ public class ClickHandler : MonoBehaviour {
 					}
 					break;
 
-=======
->>>>>>> parent of 66c585c... Something Broke----
 
 					default:
 					break;
