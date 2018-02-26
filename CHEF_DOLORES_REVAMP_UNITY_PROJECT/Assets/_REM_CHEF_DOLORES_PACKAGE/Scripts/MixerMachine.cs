@@ -26,7 +26,7 @@ public class MixerMachine : MonoBehaviour {
 
 	public Color disabledColor, enabledColor;
 
-	public Recipies recipiesReference;
+	Recipies recipiesReference;
 
 	//UI STUFF
 	[SerializeField]
@@ -44,6 +44,7 @@ public class MixerMachine : MonoBehaviour {
 
 		}
 		buttonMesh.GetComponent<Renderer> ().material.color = disabledColor;
+		recipiesReference = GetComponent<Recipies> ();
 		//MeshButtonCheck ();
 	}
 

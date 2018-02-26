@@ -24,7 +24,7 @@ public class PlayerHand : MonoBehaviour {
 		//Dissables Collider and Hides Outline
 		//	fun fact... if you fix this error, player can grab machine too... weird...
 			item.GetComponent<Ingredient> ().DisableCollider ();
-			item.GetComponent<Ingredient> ().HideOutline ();
+			//item.GetComponent<Ingredient> ().HideOutline ();
 
 		//Tweens hand towards item to grab, objinsight
 		DOTween.To (

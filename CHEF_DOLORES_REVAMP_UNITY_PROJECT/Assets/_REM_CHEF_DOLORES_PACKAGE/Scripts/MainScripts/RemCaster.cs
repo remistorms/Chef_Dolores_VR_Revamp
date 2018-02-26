@@ -19,8 +19,10 @@ public class RemCaster : MonoBehaviour {
 		ShootRay ();
 		ShootRayMachineLayer ();
 		//CLICKS FOR ITEM
-		ClickOnItem ();
+		//ClickOnItem ();
 		//CLICKS FOR MACHINE
+
+		ClickHandler.instance.CheckClickProperties ();
 	}
 
 	void ShootRay(){

@@ -10,9 +10,12 @@ public class ClickHandler : MonoBehaviour {
 		instance = this;
 	}
 
-	void CheckClickProperties(){
+	public void CheckClickProperties(){
 	
+
+
 		if (Input.GetMouseButtonDown(0)) {
+			
 			//Checks if there is an object in sight
 			if (RemCaster.instance.obj_in_sight != null) {
 				Debug.Log ("Player has clicked on something");
@@ -32,7 +35,7 @@ public class ClickHandler : MonoBehaviour {
 					case "FinishedDish":
 					//Debug.Log ("Player has clicked on MixerMachine; Object in hand=" + hasItem.ToString());
 					//IF HAS ITEM; PLACE IT ON MACHINE
-					if (hasItem == false) {
+					if (IsHoldingItem() == false) {
 						Debug.Log ("CLicking on finished dish");
 						clicked.GetComponent<FinishedDish> ().GrabDish ();
 					}
@@ -44,6 +47,14 @@ public class ClickHandler : MonoBehaviour {
 				}
 
 			}
+		}
+	}
+
+	bool IsHoldingItem(){
+		if (PlayerHand.instance.held_item == null) {
+			return false;	
+		} else {
+			return true;
 		}
 	}
 }
