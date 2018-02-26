@@ -13,4 +13,16 @@ public class MachineAnimations : MonoBehaviour {
 	public void CloseLid(){
 		machineAnimator.SetBool ("isLidOpen", false);
 	}
+
+	public void ShakeMachine(){
+		machineAnimator.SetTrigger ("turnOnMachine");
+	}
+
+	public void DeliverPlate(){
+		machineAnimator.SetTrigger ("finishedFood");
+	}
+
+	public void ResetMachineAnimations(){
+		machineAnimator.SetTrigger ("resetMachine");
+	}
 }

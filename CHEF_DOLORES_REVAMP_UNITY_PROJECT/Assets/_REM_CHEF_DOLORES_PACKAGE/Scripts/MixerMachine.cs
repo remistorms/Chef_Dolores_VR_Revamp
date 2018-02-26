@@ -14,11 +14,17 @@ public class MixerMachine : MonoBehaviour {
 	public CanvasGroup panelCanvas;
 	public GameObject buttonMesh;
 	public bool canMix = true;
+	public MachineAnimations machineController;
+	public Transform insideMachine;
+	public Transform trayPosition;
+	public FinishedDish finishedDishReference;
 
 	public float firstSlotMutl, secondSlotMult,thirdSlotMult, fourthSlotMult, fifthSlotMult;
 	public float totalPoints = 0;
 
 	public Color disabledColor, enabledColor;
+
+	public Recipies recipiesReference;
 
 	//UI STUFF
 	[SerializeField]
@@ -26,6 +32,7 @@ public class MixerMachine : MonoBehaviour {
 	[SerializeField]
 	Button machineButton;
 	public Transform buttonHoverPosition;
+	public Slider processSlider;
 
 	void Awake(){
 		instance = this;
@@ -34,7 +41,8 @@ public class MixerMachine : MonoBehaviour {
 			item.GetComponent<Image> ().enabled = false;
 
 		}
-		MeshButtonCheck ();
+		buttonMesh.GetComponent<Renderer> ().material.color = disabledColor;
+		//MeshButtonCheck ();
 	}
 
 	void FixedUpdate(){
@@ -45,10 +53,24 @@ public class MixerMachine : MonoBehaviour {
 	public void ReceiveIngredient(GameObject ingredient){
 			Debug.Log ("MixerMachine received an ingredient just now");
 
-			//Animates ingredient enterin machine
+			//Animates ingredient entering machine
+		DOTween.To(
+			()=> ingredient.transform.position,
+			x=> ingredient.transform.position = x,
+			insideMachine.transform.position,
+			0.2f
+		);
 
-			//Add ingredient to queue at current Slot
+		DOTween.To(
+			()=> ingredient.transform.localScale,
+			x=> ingredient.transform.localScale = x,
+			Vector3.zero,
+			0.2f
+		);
+
+			//Add ingredient to queue at current Slot and to the recipy script
 			ingredientsInsideMachine.Add(ingredient);
+			recipiesReference.ingredientsGO.Add (ingredient);
 
 			//Add sprite to UI
 			itemSlotsUI[currentSlot].GetComponent<Image>().enabled = true;
@@ -59,7 +81,7 @@ public class MixerMachine : MonoBehaviour {
 			MeshButtonCheck ();
 			if (currentSlot == 5) {
 				isMaxedOut = true;
-				MixIngredients ();
+				//MixIngredients ();
 			}
 	}
 
@@ -78,10 +100,12 @@ public class MixerMachine : MonoBehaviour {
 	//MIX INGREEDIENTS ROUTINE
 	IEnumerator	MixIngredientsRoutine(){
 
+
 		canMix = false;
 		float multiplyer = 8;
 		List <float> sltPnts = new List<float>();
 		float totalProcessTime = 0f;
+		recipiesReference.GetIngredients ();
 
 		//Get points
 		for (int i = 0; i < ingredientsInsideMachine.Count; i++) 
@@ -91,11 +115,26 @@ public class MixerMachine : MonoBehaviour {
 			Debug.Log ("multiplier = " + multiplyer );
 			multiplyer = multiplyer / 2;
 			totalPoints += sltPnts [i];
-
 		}
 
-		Debug.Log ("Total Waiting time: " + totalProcessTime.ToString());
+		//START ANIMATIONS and show UI
+		machineController.ShakeMachine();
+
+		DOTween.To (
+			()=> processSlider.value,
+			x=> processSlider.value = x,
+			1,
+			totalProcessTime
+		);
 		yield return new WaitForSeconds (totalProcessTime);
+
+		//HERE GOES THE CODE TO MAKE THE DISJ AND PUT IT ON BONE
+		finishedDishReference.CreateDish(ingredientsInsideMachine[1].name);
+
+
+		machineController.DeliverPlate ();
+
+
 		Debug.Log ("DONE");
 
 		//CLEAR INGREDIENTS
@@ -147,4 +186,6 @@ public class MixerMachine : MonoBehaviour {
 		totalPoints = 0;
 
 	}
+
+
 }

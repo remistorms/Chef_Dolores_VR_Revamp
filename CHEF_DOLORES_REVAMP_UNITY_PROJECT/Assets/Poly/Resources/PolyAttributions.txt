@@ -12,15 +12,33 @@ URL: https://poly.google.com/view/5d6zv4Ow2tO
 License: Creative Commons CC-BY
 https://creativecommons.org/licenses/by/3.0/legalcode
 
+Title: Hamburger
+Author: Poly by Google
+URL: https://poly.google.com/view/fNdEHvI86Hu
+License: Creative Commons CC-BY
+https://creativecommons.org/licenses/by/3.0/legalcode
+
 Title: Hot Sauce
 Author: Izzy Parkinson
 URL: https://poly.google.com/view/e8_FzobmqaO
 License: Creative Commons CC-BY
 https://creativecommons.org/licenses/by/3.0/legalcode
 
+Title: Salad
+Author: Poly by Google
+URL: https://poly.google.com/view/0qK3FZdugIu
+License: Creative Commons CC-BY
+https://creativecommons.org/licenses/by/3.0/legalcode
+
 Title: sammich
 Author: Jeff Larson
 URL: https://poly.google.com/view/9TD15OhRzW9
+License: Creative Commons CC-BY
+https://creativecommons.org/licenses/by/3.0/legalcode
+
+Title: Sammich
+Author: Ryan Donaldson
+URL: https://poly.google.com/view/cSfvG3qqDr7
 License: Creative Commons CC-BY
 https://creativecommons.org/licenses/by/3.0/legalcode
 
