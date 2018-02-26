@@ -17,7 +17,7 @@ public class RemCaster : MonoBehaviour {
 	void Update(){
 		
 		ShootRay ();
-		ShootRayMachineLayer ();
+		//ShootRayMachineLayer ();
 		//CLICKS FOR ITEM
 		//ClickOnItem ();
 		//CLICKS FOR MACHINE
@@ -27,8 +27,13 @@ public class RemCaster : MonoBehaviour {
 	void ShootRay(){
 		Ray myRay = new Ray (transform.position, transform.forward);
 
-			//THERE IS AN ITEM IN SIGHT
+			/*//THERE IS AN ITEM IN SIGHT
 			if (Physics.Raycast (myRay, out myHit, 20, itemsLayer)) {
+				obj_in_sight = myHit.collider.gameObject;
+			} */
+
+			//THERE IS AN ITEM IN SIGHT
+			if (Physics.Raycast (myRay, out myHit, 20)) {
 				obj_in_sight = myHit.collider.gameObject;
 			} 
 			//NOTHING IN SIGHT
@@ -38,6 +43,7 @@ public class RemCaster : MonoBehaviour {
 			
 		}
 
+	/*
 	void ShootRayMachineLayer(){
 
 		Ray myRay = new Ray (transform.position, transform.forward);
@@ -65,9 +71,9 @@ public class RemCaster : MonoBehaviour {
 			}
 		} 
 
-	}
+	}*/
 
-		
+	/*	
 	void ClickOnItem(){
 		//Player clicks-on mouse when not holding an item in hand
 		if (Input.GetMouseButtonDown(0) && PlayerHand.instance.held_item == null && obj_in_sight != null) {
@@ -81,6 +87,6 @@ public class RemCaster : MonoBehaviour {
 			PlayerHand.instance.DropItem ();
 		}
 			
-	}
+	}*/
 		
 }

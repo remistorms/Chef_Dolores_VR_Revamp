@@ -15,10 +15,13 @@ public class ClickHandler : MonoBehaviour {
 
 
 		if (Input.GetMouseButtonDown(0)) {
-			
+
+			//BEST DEBUGGER
+			Debug.Log ("Player has clicked on " + RemCaster.instance.obj_in_sight.name + "; item in hand = " + IsHoldingItem().ToString());
+
 			//Checks if there is an object in sight
 			if (RemCaster.instance.obj_in_sight != null) {
-				Debug.Log ("Player has clicked on something");
+				
 				GameObject clicked = RemCaster.instance.obj_in_sight;
 
 				switch (clicked.tag) {
