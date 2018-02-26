@@ -45,6 +45,15 @@ public class ClickHandler : MonoBehaviour {
 						}
 					break;
 
+					case "FinishedDish":
+					//Debug.Log ("Player has clicked on MixerMachine; Object in hand=" + hasItem.ToString());
+					//IF HAS ITEM; PLACE IT ON MACHINE
+					if (hasItem == false) {
+						Debug.Log ("CLicking on finished dish");
+						clicked.GetComponent<FinishedDish> ().GrabDish ();
+					}
+					break;
+
 
 					default:
 					Debug.Log ("Clickin on something else!!!");

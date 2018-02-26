@@ -127,9 +127,9 @@ public class MixerMachine : MonoBehaviour {
 		GetPoints();
 		finishedDishReference.CreateDish(ingredientsInsideMachine[1].name);
 
-	
 		machineController.DeliverPlate ();
-
+		yield return new WaitForSeconds (0.5f);
+		finishedDishReference.EnableDishCollider ();
 
 		Debug.Log ("DONE");
 
@@ -164,7 +164,7 @@ public class MixerMachine : MonoBehaviour {
 		}
 	}
 
-	void EmptyMachine(){
+	public void EmptyMachine(){
 		
 		foreach (var item in ingredientsInsideMachine) {
 			Destroy (item);
