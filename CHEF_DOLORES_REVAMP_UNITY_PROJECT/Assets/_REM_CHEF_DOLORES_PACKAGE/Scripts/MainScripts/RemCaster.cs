@@ -19,9 +19,8 @@ public class RemCaster : MonoBehaviour {
 		ShootRay ();
 		ShootRayMachineLayer ();
 		//CLICKS FOR ITEM
-		//ClickOnItem ();
+		ClickOnItem ();
 		//CLICKS FOR MACHINE
-		ClickHandler.instance.CheckClickProperties();
 	}
 
 	void ShootRay(){
@@ -51,7 +50,7 @@ public class RemCaster : MonoBehaviour {
 
 			//Player clicks on mouse button
 			if (Input.GetMouseButtonDown(0)) {
-				//Debug.Log("Player is clicking at machine while NOT holding an item");	
+				Debug.Log("Player is clicking at machine while NOT holding an item");	
 			}
 		} 
 
