@@ -19,7 +19,7 @@ public class ButtonPress : MonoBehaviour {
 		DOTween.To (
 			() => transform.localScale,
 			x => transform.localScale = x,
-			new Vector3(originalScale.x, 0.01f, originalScale.z),
+			new Vector3(originalScale.x, 0.005f, originalScale.z),
 			//Vector3.zero,
 			0.2f);
 		yield return new WaitForSeconds (0.2f);

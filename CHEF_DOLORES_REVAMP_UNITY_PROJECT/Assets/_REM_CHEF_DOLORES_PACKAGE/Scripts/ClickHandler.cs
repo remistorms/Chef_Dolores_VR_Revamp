@@ -40,6 +40,11 @@ public class ClickHandler : MonoBehaviour {
 
 
 					case "trash":
+					//Method to throw item into garbage
+					if (IsHoldingItem() == true) {
+						PlayerHand.instance.TrashItem(RemCaster.instance.obj_in_sight.transform);
+					}
+
 					break;
 
 

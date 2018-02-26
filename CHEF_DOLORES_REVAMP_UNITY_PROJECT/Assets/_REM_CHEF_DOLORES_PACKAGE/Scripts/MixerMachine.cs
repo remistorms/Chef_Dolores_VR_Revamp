@@ -18,7 +18,7 @@ public class MixerMachine : MonoBehaviour {
 	public bool canMix = true;
 	public MachineAnimations machineController;
 	public Transform insideMachine;
-	public Transform trayPosition;
+	//public Transform trayPosition;
 	public FinishedDish finishedDishReference;
 
 	public float firstSlotMutl, secondSlotMult,thirdSlotMult, fourthSlotMult, fifthSlotMult;

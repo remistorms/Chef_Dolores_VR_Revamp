@@ -114,4 +114,42 @@ public class PlayerHand : MonoBehaviour {
 
 	}
 
+	public void TrashItem(Transform other){
+		StartCoroutine (DropItemIntoTrash (other));
+	}
+
+	IEnumerator DropItemIntoTrash(Transform other){
+
+		//disables item collider so player can no longer interact with it
+		held_item.GetComponent<Ingredient> ().DisableCollider ();
+
+		//Animates towards target
+		DOTween.To(
+			()=> handMesh.transform.position, 
+			x=> handMesh.transform.position = x,
+			other.transform.position,
+			0.5f);
+
+		yield return new WaitForSeconds (0.5f);
+
+		//Animates item scaling down
+		DOTween.To(
+			()=> held_item.transform.localScale, 
+			x=> held_item.transform.localScale = x,
+			Vector3.zero,
+			0.5f);
+
+		yield return new WaitForSeconds (0.5f);
+
+		//Return Hand Position
+		AnimatesHandReturn();
+
+		//no longer holding item
+		yield return new WaitForSeconds (0.5f);
+
+		//Actvate machine receive Ingredient here
+		Destroy (held_item);
+		held_item = null;
+	
+	}
 }
