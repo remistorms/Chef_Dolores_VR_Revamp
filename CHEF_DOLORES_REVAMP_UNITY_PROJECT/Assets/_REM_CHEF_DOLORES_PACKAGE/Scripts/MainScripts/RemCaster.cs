@@ -21,7 +21,6 @@ public class RemCaster : MonoBehaviour {
 		//CLICKS FOR ITEM
 		//ClickOnItem ();
 		//CLICKS FOR MACHINE
-
 		ClickHandler.instance.CheckClickProperties ();
 	}
 

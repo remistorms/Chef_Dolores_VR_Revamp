@@ -22,15 +22,23 @@ public class ClickHandler : MonoBehaviour {
 				GameObject clicked = RemCaster.instance.obj_in_sight;
 
 				switch (clicked.tag) {
-				//CASES
+					//CASES
 					case "ingredient":
+					if (IsHoldingItem() == false) {
+						PlayerHand.instance.HoldItem (clicked);
+					}
 					break;
+
+					case "MixerMachine":
+					if (IsHoldingItem() == true) {
+						PlayerHand.instance.DropItem ();
+					}
+					break;
+
 
 					case "trash":
 					break;
 
-					case "machine":
-					break;
 
 					case "FinishedDish":
 					//Debug.Log ("Player has clicked on MixerMachine; Object in hand=" + hasItem.ToString());

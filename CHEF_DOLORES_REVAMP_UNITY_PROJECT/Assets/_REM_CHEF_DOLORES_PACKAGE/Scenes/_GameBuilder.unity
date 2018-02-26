@@ -180,6 +180,14 @@ Prefab:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 96f24a4fabc296f4b808d067a8195908, type: 2}
+    - target: {fileID: 100020, guid: f3e6605b9427cfb4b84ae9219fbbb8a0, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 100018, guid: f3e6605b9427cfb4b84ae9219fbbb8a0, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f3e6605b9427cfb4b84ae9219fbbb8a0, type: 3}
   m_IsPrefabParent: 0
@@ -559,7 +567,7 @@ GameObject:
   - component: {fileID: 58003698}
   m_Layer: 9
   m_Name: Mixer Machine
-  m_TagString: Untagged
+  m_TagString: MixerMachine
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -649,7 +657,6 @@ MonoBehaviour:
   totalPoints: 0
   disabledColor: {r: 0.16933392, g: 0.29878896, b: 0.42647058, a: 0}
   enabledColor: {r: 0, g: 0.6689658, b: 1, a: 0}
-  recipiesReference: {fileID: 58003698}
   itemSlotsUI:
   - {fileID: 717789105}
   - {fileID: 1178049850}
@@ -991,7 +998,7 @@ GameObject:
   - component: {fileID: 166817227}
   - component: {fileID: 166817229}
   - component: {fileID: 166817228}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1116,6 +1123,94 @@ Prefab:
       propertyPath: dishPointsLabel
       value: 
       objectReference: {fileID: 306139042}
+    - target: {fileID: 1973843923862672, guid: 73e5e4dc70a13b24a9432600f1fd1d6d, type: 2}
+      propertyPath: m_TagString
+      value: FinishedDish
+      objectReference: {fileID: 0}
+    - target: {fileID: 1640958877597436, guid: 73e5e4dc70a13b24a9432600f1fd1d6d, type: 2}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1973843923862672, guid: 73e5e4dc70a13b24a9432600f1fd1d6d, type: 2}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1922267153761538, guid: 73e5e4dc70a13b24a9432600f1fd1d6d, type: 2}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1358711654910378, guid: 73e5e4dc70a13b24a9432600f1fd1d6d, type: 2}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017206478018626, guid: 73e5e4dc70a13b24a9432600f1fd1d6d, type: 2}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1423113517110698, guid: 73e5e4dc70a13b24a9432600f1fd1d6d, type: 2}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1386754612618172, guid: 73e5e4dc70a13b24a9432600f1fd1d6d, type: 2}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1109709263986254, guid: 73e5e4dc70a13b24a9432600f1fd1d6d, type: 2}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1093983017432040, guid: 73e5e4dc70a13b24a9432600f1fd1d6d, type: 2}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1760199612801682, guid: 73e5e4dc70a13b24a9432600f1fd1d6d, type: 2}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1172556813015074, guid: 73e5e4dc70a13b24a9432600f1fd1d6d, type: 2}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1186373198645152, guid: 73e5e4dc70a13b24a9432600f1fd1d6d, type: 2}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1451035872250258, guid: 73e5e4dc70a13b24a9432600f1fd1d6d, type: 2}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1782426640932874, guid: 73e5e4dc70a13b24a9432600f1fd1d6d, type: 2}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1413979865381874, guid: 73e5e4dc70a13b24a9432600f1fd1d6d, type: 2}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1709315202771666, guid: 73e5e4dc70a13b24a9432600f1fd1d6d, type: 2}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1077171287788826, guid: 73e5e4dc70a13b24a9432600f1fd1d6d, type: 2}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1901481600182072, guid: 73e5e4dc70a13b24a9432600f1fd1d6d, type: 2}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1766493986984632, guid: 73e5e4dc70a13b24a9432600f1fd1d6d, type: 2}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1758812390633374, guid: 73e5e4dc70a13b24a9432600f1fd1d6d, type: 2}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594412939010268, guid: 73e5e4dc70a13b24a9432600f1fd1d6d, type: 2}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 73e5e4dc70a13b24a9432600f1fd1d6d, type: 2}
   m_IsPrefabParent: 0
@@ -1674,7 +1769,7 @@ GameObject:
   - component: {fileID: 306139041}
   - component: {fileID: 306139043}
   - component: {fileID: 306139042}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2853,7 +2948,7 @@ GameObject:
   - component: {fileID: 748641322}
   - component: {fileID: 748641321}
   - component: {fileID: 748641320}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6922,7 +7017,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1922308166}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: TrayPosition
   m_TagString: Untagged
   m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
