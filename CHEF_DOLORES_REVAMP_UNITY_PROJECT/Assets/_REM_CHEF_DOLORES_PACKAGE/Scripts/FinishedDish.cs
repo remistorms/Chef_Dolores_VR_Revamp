@@ -15,7 +15,6 @@ public class FinishedDish : MonoBehaviour {
 
 	void Awake(){
 		DisableAllDishes ();
-		DisableDishCollider ();
 	}
 	public void CreateDish(string mainIngredient){
 	
@@ -95,19 +94,5 @@ public class FinishedDish : MonoBehaviour {
 		}
 
 		return containsTuna;
-	}
-
-	public void EnableDishCollider(){
-		GetComponent<Collider> ().enabled = true;
-	}
-
-	public void DisableDishCollider(){
-		GetComponent<Collider> ().enabled = false;
-	}
-
-	public void GrabDish()
-	{
-		//Resets Machine
-		MixerMachine.instance.EmptyMachine();
 	}
 }
