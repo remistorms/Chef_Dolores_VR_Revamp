@@ -108,9 +108,7 @@ public class MixerMachine : MonoBehaviour {
 		float multiplyer = 8;
 		List <float> sltPnts = new List<float>();
 		float totalProcessTime = 0f;
-		recipiesReference.GetIngredients ();
-
-
+		//recipiesReference.GetIngredients ();
 
 
 		//START ANIMATIONS and show UI
@@ -242,4 +240,9 @@ public class MixerMachine : MonoBehaviour {
 		}*/
 	}
 
+	public void ResetMachine(){
+		canMix = true;
+		ingredientsInsideMachine.Clear ();
+		machineController.ResetMachineAnimations ();
+	}
 }

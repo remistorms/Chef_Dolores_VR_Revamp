@@ -2,20 +2,26 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class FinishedDish : MonoBehaviour {
+
+	public static FinishedDish instance;
 
 	public float dishPoints;
 	float sum = 0;
 	public bool containsTuna;
 	public GameObject hamburguesa, sandwich, ensalada, tortitasDePapa, jitomateRelleno, bolasDeArroz;
 	public Text dishPointsLabel;
+	Vector3 originalScale;
 
 	public int[] multipicadores;
 
 	void Awake(){
+		instance = this;
 		DisableAllDishes ();
 		DisableDishCollider ();
+		originalScale = transform.localScale;
 	}
 	public void CreateDish(string mainIngredient){
 	
@@ -105,9 +111,26 @@ public class FinishedDish : MonoBehaviour {
 		GetComponent<Collider> ().enabled = false;
 	}
 
-	public void GrabDish()
+	public void CollectDish(){
+		StartCoroutine (CollectDishRoutine ());
+	}
+
+	IEnumerator CollectDishRoutine()
 	{
-		//Resets Machine
-		MixerMachine.instance.EmptyMachine();
+		//Disapear and shirnk
+		DisableDishCollider();
+
+		DOTween.To (
+			() => transform.localScale,
+			x => transform.localScale = x,
+			Vector3.zero,
+			0.25f);
+		yield return new WaitForSeconds (0.5f);
+		 
+		//Reset Machine Animation
+		//MixerMachine.instance.machineController.machineAnimator.SetTrigger("resetMachine");
+		MixerMachine.instance.ResetMachine();
+		yield return new WaitForSeconds (2f);
+		transform.localScale = originalScale;
 	}
 }

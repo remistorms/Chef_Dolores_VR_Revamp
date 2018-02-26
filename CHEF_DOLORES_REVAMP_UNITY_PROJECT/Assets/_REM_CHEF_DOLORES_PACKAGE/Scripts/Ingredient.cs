@@ -22,7 +22,7 @@ public class Ingredient : MonoBehaviour {
 
 	void OnEnable(){
 
-		name = this.gameObject.name;
+		//name = this.gameObject.name;
 		this.tag = "ingredient";
 		originalScale = transform.localScale;
 		myCollider = GetComponent<SphereCollider> ();
@@ -67,5 +67,16 @@ public class Ingredient : MonoBehaviour {
 			x => transform.localScale = x,
 			originalScale,
 			0.3f);
+	}
+
+	void PuffParticle(){
+		transform.localScale = Vector3.zero;
+
+		DOTween.To (
+			() => transform.localScale,
+			x => transform.localScale = x,
+			originalScale,
+			0.5f);
+
 	}
 }
