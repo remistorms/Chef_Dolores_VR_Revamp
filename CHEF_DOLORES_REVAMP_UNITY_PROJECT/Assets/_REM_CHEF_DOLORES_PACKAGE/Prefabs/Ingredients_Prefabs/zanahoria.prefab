@@ -165,8 +165,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   esAtunDolores: 0
   name: zanahoira
-  points: 10
-  timeToProcess: 0.5
+  points: 30
+  timeToProcess: 5
   icon: {fileID: 21300018, guid: 630e56eebd237e04693124509e918e58, type: 3}
 --- !u!114 &114525956134884752
 MonoBehaviour:

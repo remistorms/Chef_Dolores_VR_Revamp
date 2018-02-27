@@ -214,7 +214,7 @@ MonoBehaviour:
   esAtunDolores: 0
   name: arroz
   points: 150
-  timeToProcess: 0.5
+  timeToProcess: 5
   icon: {fileID: 21300010, guid: 630e56eebd237e04693124509e918e58, type: 3}
 --- !u!135 &135930851194365708
 SphereCollider:

@@ -117,6 +117,7 @@ public class FinishedDish : MonoBehaviour {
 
 	IEnumerator CollectDishRoutine()
 	{
+		PostGameUI.instance.UpdateScore (Mathf.FloorToInt( dishPoints));
 		//Disapear and shirnk
 		DisableDishCollider();
 

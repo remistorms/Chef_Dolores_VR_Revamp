@@ -4,10 +4,9 @@ using UnityEngine;
 
 public class DatosJugador : MonoBehaviour {
 
-	public enum dificultad {facil, mediana, dificil};
 
-	[SerializeField]
-	string nombreJugador;
+
+	public string nombreJugador;
 	[SerializeField]
 	string ticketJugador; 
 	[SerializeField]
@@ -22,8 +21,7 @@ public class DatosJugador : MonoBehaviour {
 	string premioSeleccionado;
 	[SerializeField]
 	int puntosObtenidos;
-	[SerializeField]
-	dificultad dificultadSeleccionada;
+
 
 	public void SetNombre(string name){
 		nombreJugador = name;
@@ -53,7 +51,4 @@ public class DatosJugador : MonoBehaviour {
 		premioSeleccionado = premio;
 	}
 
-	public void SetDificultad(dificultad dificultad){
-		dificultadSeleccionada = dificultad;
-	}
 }

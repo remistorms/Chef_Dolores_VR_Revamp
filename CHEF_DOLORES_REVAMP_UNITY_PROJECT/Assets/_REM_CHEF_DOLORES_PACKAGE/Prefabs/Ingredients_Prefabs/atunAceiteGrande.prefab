@@ -211,7 +211,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   esAtunDolores: 1
   name: atunAceiteGrande
-  points: 1000
+  points: 750
   timeToProcess: 10
   icon: {fileID: 21300026, guid: 630e56eebd237e04693124509e918e58, type: 3}
 --- !u!135 &135969596008567644

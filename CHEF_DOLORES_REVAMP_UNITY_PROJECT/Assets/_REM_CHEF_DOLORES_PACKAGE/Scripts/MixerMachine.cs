@@ -23,10 +23,10 @@ public class MixerMachine : MonoBehaviour {
 
 	public float firstSlotMutl, secondSlotMult,thirdSlotMult, fourthSlotMult, fifthSlotMult;
 	public float totalPoints = 0;
-
+	public int mixTime =0;
 	public Color disabledColor, enabledColor;
 
-	Recipies recipiesReference;
+	//Recipies recipiesReference;
 
 	//UI STUFF
 	[SerializeField]
@@ -44,7 +44,7 @@ public class MixerMachine : MonoBehaviour {
 
 		}
 		buttonMesh.GetComponent<Renderer> ().material.color = disabledColor;
-		recipiesReference = GetComponent<Recipies> ();
+		//recipiesReference = GetComponent<Recipies> ();
 		//MeshButtonCheck ();
 	}
 
@@ -73,7 +73,7 @@ public class MixerMachine : MonoBehaviour {
 
 			//Add ingredient to queue at current Slot and to the recipy script
 			ingredientsInsideMachine.Add(ingredient);
-			recipiesReference.ingredientsGO.Add (ingredient);
+			//recipiesReference.ingredientsGO.Add (ingredient);
 
 			//Add sprite to UI
 			itemSlotsUI[currentSlot].GetComponent<Image>().enabled = true;
@@ -114,17 +114,13 @@ public class MixerMachine : MonoBehaviour {
 		//START ANIMATIONS and show UI
 		machineController.ShakeMachine();
 
-		DOTween.To (
-			()=> processSlider.value,
-			x=> processSlider.value = x,
-			1,
-			totalProcessTime
-		);
-		yield return new WaitForSeconds (totalProcessTime);
+
+
 
 		//HERE GOES THE CODE TO MAKE THE DISJ AND PUT IT ON BONE
 		GetPoints();
 		finishedDishReference.CreateDish(ingredientsInsideMachine[1].name);
+		yield return new WaitForSeconds (mixTime);
 
 		machineController.DeliverPlate ();
 		yield return new WaitForSeconds (0.5f);
@@ -185,6 +181,14 @@ public class MixerMachine : MonoBehaviour {
 
 	public void GetPoints(){
 
+		mixTime = 0;
+
+		foreach (var item in ingredientsInsideMachine) {
+			mixTime += Mathf.CeilToInt( item.GetComponent<Ingredient> ().timeToProcess);
+			Debug.Log ("Machine will take " + mixTime + " seconds making the dish");
+		}
+
+		TimeSlider ();
 
 		//Debug.Log ("ingredients inside machine:" + ingredientsInsideMachine.Count);
 
@@ -244,5 +248,16 @@ public class MixerMachine : MonoBehaviour {
 		canMix = true;
 		ingredientsInsideMachine.Clear ();
 		machineController.ResetMachineAnimations ();
+	}
+
+	public void TimeSlider(){
+		processSlider.value = 0;
+
+		DOTween.To (
+			()=> processSlider.value,
+			x=> processSlider.value = x,
+			1,
+			mixTime + 1
+		);
 	}
 }
