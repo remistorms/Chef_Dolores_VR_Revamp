@@ -11016,6 +11016,7 @@ GameObject:
   - component: {fileID: 1606526033}
   - component: {fileID: 1606526032}
   - component: {fileID: 1606526036}
+  - component: {fileID: 1606526037}
   m_Layer: 5
   m_Name: Plaza_Panel
   m_TagString: Untagged
@@ -11091,6 +11092,24 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b13cb1ecf7447464abfdcd1bb7b7088e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  testString: Lagunitas Mayoreo, Sayulita, Puma Ceda, Abarrotes Abeja, Puebla Products
+  plazas: []
+  separators:
+  - ','
+  buttonPrefab: {fileID: 1711423919759520, guid: 887c70f63f69ad94ca0d9b6780fbfe44,
+    type: 2}
+  buttonsParent: {fileID: 1065810511}
+--- !u!114 &1606526037
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1606526031}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cabb3e063e64f1459c56ba341edddaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1671869583
