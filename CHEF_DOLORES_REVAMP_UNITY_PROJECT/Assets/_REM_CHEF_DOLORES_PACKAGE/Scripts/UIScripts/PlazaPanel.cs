@@ -11,6 +11,8 @@ public class PlazaPanel : MonoBehaviour {
 	public string[] separators;
 	public GameObject buttonPrefab;
 	public RectTransform buttonsParent;
+	[SerializeField]
+	RectTransform resizeableScrollArea;
 
 	public void GetPlazaButtons(string longString, string[] separators){
 	
@@ -26,6 +28,8 @@ public class PlazaPanel : MonoBehaviour {
 			instantiatedButton.name = "Button_" + plazas [i];
 			button.GetComponentInChildren<Text> ().text = plazas [i];
 		}
+
+		ResizeScrollArea ();
 	}
 
 	void Update(){
@@ -33,5 +37,32 @@ public class PlazaPanel : MonoBehaviour {
 			GetPlazaButtons (testString, separators);
 			Debug.Log ("Getting plaza buttons");
 		}
+	}
+
+	//modifies the size of the scroll area based on the amount of childern
+	void ResizeScrollArea(){
+		//GetNumber of childer
+		int totalButtons = resizeableScrollArea.childCount;
+		Vector2 size;
+
+		//Checks if the buttons are odd or even and gets the proper wigdth
+		if (totalButtons % 3 == 0 && totalButtons >= 9) {
+			Debug.Log ("Even numbered buttons");
+			float x = 400 + (totalButtons/3) * 400;
+			size = new Vector2 (x, resizeableScrollArea.sizeDelta.y);
+		} 
+
+		else if (totalButtons % 3 != 0 && totalButtons >= 9) {
+			Debug.Log ("Odd numbered buttons");
+			float x = 400 + (Mathf.RoundToInt(totalButtons/3)) * 400;
+			size = new Vector2 (x, resizeableScrollArea.sizeDelta.y);
+		}
+
+		else {
+			size = new Vector2 (1200, resizeableScrollArea.sizeDelta.y);
+		}
+
+		//Resizes the panel accordingly 
+		resizeableScrollArea.sizeDelta = size;
 	}
 }

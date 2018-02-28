@@ -1224,7 +1224,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &215157990
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6925,7 +6925,7 @@ GameObject:
   - component: {fileID: 1065810511}
   - component: {fileID: 1065810512}
   m_Layer: 5
-  m_Name: ScrollArea
+  m_Name: ResizeableScrollArea
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6948,7 +6948,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0.000016632626, y: -0.0000071971363}
-  m_SizeDelta: {x: 1819.3, y: 710}
+  m_SizeDelta: {x: 1800, y: 710}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1065810512
 MonoBehaviour:
@@ -6973,7 +6973,7 @@ MonoBehaviour:
   m_CellSize: {x: 400, y: 150}
   m_Spacing: {x: 5, y: 25}
   m_Constraint: 2
-  m_ConstraintCount: 2
+  m_ConstraintCount: 3
 --- !u!1 &1068666202
 GameObject:
   m_ObjectHideFlags: 0
@@ -9075,13 +9075,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b13cb1ecf7447464abfdcd1bb7b7088e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  testString: Lagunitas Mayoreo,Sayulita,Puma Ceda,Abarrotes Abeja,Puebla Products
+  testString: boton,boton,cinco,cuatro,amor,boton,boton,cinco,cuatro,amor,boton,boton,cinco,cuatro,amor
   plazas: []
   separators:
   - ','
   buttonPrefab: {fileID: 1711423919759520, guid: 887c70f63f69ad94ca0d9b6780fbfe44,
     type: 2}
   buttonsParent: {fileID: 1065810511}
+  resizeableScrollArea: {fileID: 1065810511}
 --- !u!1 &1671869583
 GameObject:
   m_ObjectHideFlags: 0
