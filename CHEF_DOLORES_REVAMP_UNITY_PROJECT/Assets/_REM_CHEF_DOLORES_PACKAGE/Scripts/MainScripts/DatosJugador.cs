@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DatosJugador : MonoBehaviour {
 
-
+	public static DatosJugador instance;
 
 	public string nombreJugador;
 	[SerializeField]
@@ -21,6 +21,11 @@ public class DatosJugador : MonoBehaviour {
 	string premioSeleccionado;
 	[SerializeField]
 	int puntosObtenidos;
+
+	void Awake()
+	{
+		instance = this;
+	}
 
 
 	public void SetNombre(string name){
