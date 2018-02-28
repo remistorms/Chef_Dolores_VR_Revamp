@@ -3,14 +3,42 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+//MY ENUM
+public enum ButtonTypeEnum 
+{
+	Plaza, 
+	Cadena, 
+	Premio 
+};
+
 public class RuntimeButton : MonoBehaviour {
 
+	public ButtonTypeEnum buttonType;
 	public Color selectedColor;
 	Color defaultColor;
 	void Awake(){
+
+		//Adds the event listener depending on the selected buttonTypeEnum
+		switch (buttonType) {
+
+			case ButtonTypeEnum.Plaza:
+			GetComponent<Button> ().onClick.AddListener (SetPlaza);
+			break;
+
+			case ButtonTypeEnum.Cadena:
+			GetComponent<Button> ().onClick.AddListener (SetCadena);
+			break;
+
+			case ButtonTypeEnum.Premio:
+			GetComponent<Button> ().onClick.AddListener (SetPremio);
+			break;
+
+			default:
+			break;
+		}
+
 		//Adds the click event for changing colors
 		GetComponent<Button> ().onClick.AddListener (ClickOnButton);
-		GetComponent<Button> ().onClick.AddListener (SetPlaza);
 		defaultColor= GetComponent<Button> ().image.color;
 	}
 
@@ -22,6 +50,15 @@ public class RuntimeButton : MonoBehaviour {
 	//This method will add the string of the selected plaza
 	void SetPlaza(){
 		DatosJugador.instance.SetPlaza (GetComponentInChildren<Text> ().text);
+	}
+
+	//This method will add the string of the selected cadena
+	void SetCadena(){
+		DatosJugador.instance.SetCadena (GetComponentInChildren<Text> ().text);
+	}
+
+	void SetPremio(){
+		DatosJugador.instance.SetPremio (GetComponentInChildren<Text> ().text);
 	}
 
 	//This will reset the colors
