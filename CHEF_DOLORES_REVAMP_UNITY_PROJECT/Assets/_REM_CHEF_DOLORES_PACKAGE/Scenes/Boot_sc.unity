@@ -152,6 +152,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114884586475029796, guid: cca47fffb331a2348b56883f4bf508a1,
+        type: 2}
+      propertyPath: plazaSeleccionada
+      value: Dont Dstroy
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cca47fffb331a2348b56883f4bf508a1, type: 2}
   m_IsPrefabParent: 0

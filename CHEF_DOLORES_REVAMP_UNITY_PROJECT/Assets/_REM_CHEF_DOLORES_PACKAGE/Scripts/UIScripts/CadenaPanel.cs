@@ -11,6 +11,8 @@ public class CadenaPanel : MonoBehaviour {
 	public string[] separators;
 	public GameObject buttonPrefab;
 	public RectTransform buttonsParent;
+	public Button nextButton;
+
 	[SerializeField]
 	RectTransform resizeableScrollArea;
 
@@ -26,6 +28,7 @@ public class CadenaPanel : MonoBehaviour {
 			Button button = instantiatedButton.GetComponent<Button> ();
 			//changes the name and label
 			instantiatedButton.name = "Button_" + cadenas [i];
+			instantiatedButton.GetComponent<Button> ().onClick.AddListener (NextButtonActivator);
 			button.GetComponentInChildren<Text> ().text = cadenas [i];
 		}
 
@@ -64,5 +67,15 @@ public class CadenaPanel : MonoBehaviour {
 
 		//Resizes the panel accordingly 
 		resizeableScrollArea.sizeDelta = size;
+	}
+
+	//This method activates NEXT button only when one button is pressed
+	void NextButtonActivator(){
+		//Debug.LogError("I added a method to the button, but the cool thing is that the method is on this game object.... evens baby");
+		nextButton.interactable = true;
+	}
+
+	void Start(){
+		nextButton.interactable = false;
 	}
 }

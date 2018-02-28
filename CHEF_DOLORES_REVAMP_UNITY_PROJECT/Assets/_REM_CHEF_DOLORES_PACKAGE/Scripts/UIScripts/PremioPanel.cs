@@ -11,6 +11,7 @@ public class PremioPanel : MonoBehaviour {
 	public string[] separators;
 	public GameObject buttonPrefab;
 	public RectTransform buttonsParent;
+	public Button nextButton;
 	[SerializeField]
 	RectTransform resizeableScrollArea;
 
@@ -26,6 +27,7 @@ public class PremioPanel : MonoBehaviour {
 			Button button = instantiatedButton.GetComponent<Button> ();
 			//changes the name and label
 			instantiatedButton.name = "Button_" + premios [i];
+			instantiatedButton.GetComponent<Button> ().onClick.AddListener (NextButtonActivator);
 			button.GetComponentInChildren<Text> ().text = premios [i];
 		}
 
@@ -64,5 +66,15 @@ public class PremioPanel : MonoBehaviour {
 
 		//Resizes the panel accordingly 
 		resizeableScrollArea.sizeDelta = size;
+	}
+
+	//This method activates NEXT button only when one button is pressed
+	void NextButtonActivator(){
+		//Debug.LogError("I added a method to the button, but the cool thing is that the method is on this game object.... evens baby");
+		nextButton.interactable = true;
+	}
+
+	void Start(){
+		nextButton.interactable = false;
 	}
 }

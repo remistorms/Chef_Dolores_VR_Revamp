@@ -7,20 +7,13 @@ public class DatosJugador : MonoBehaviour {
 	public static DatosJugador instance;
 
 	public string nombreJugador;
-	[SerializeField]
-	string ticketJugador; 
-	[SerializeField]
-	string productosComprados; 
-	[SerializeField]
-	float montoDeCompra; 
-	[SerializeField]
-	string plazaSeleccionada; 
-	[SerializeField]
-	string cadenaSeleccionada; 
-	[SerializeField]
-	string premioSeleccionado;
-	[SerializeField]
-	int puntosObtenidos;
+	public string ticketJugador; 
+	public string productosComprados; 
+	public float montoDeCompra; 
+	public string plazaSeleccionada; 
+	public string cadenaSeleccionada; 
+	public string premioSeleccionado;
+	public int puntosObtenidos;
 
 	void Awake()
 	{
