@@ -214,7 +214,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   esAtunDolores: 0
   name: sal
-  points: -10
+  points: 1
   timeToProcess: 1
   icon: {fileID: 21300006, guid: 630e56eebd237e04693124509e918e58, type: 3}
 --- !u!135 &135524132466931924

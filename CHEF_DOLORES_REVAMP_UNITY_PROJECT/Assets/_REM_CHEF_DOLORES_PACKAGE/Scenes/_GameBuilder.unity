@@ -520,11 +520,11 @@ MonoBehaviour:
   machineController: {fileID: 58003704}
   insideMachine: {fileID: 81755647}
   finishedDishReference: {fileID: 1308600515}
-  firstSlotMutl: 3
-  secondSlotMult: 2.5
-  thirdSlotMult: 1.5
-  fourthSlotMult: 1
-  fifthSlotMult: 0.5
+  firstSlotMutl: 2
+  secondSlotMult: 1.5
+  thirdSlotMult: 1
+  fourthSlotMult: 0.5
+  fifthSlotMult: 0.25
   totalPoints: 0
   mixTime: 0
   disabledColor: {r: 0.16933392, g: 0.29878896, b: 0.42647058, a: 0}
