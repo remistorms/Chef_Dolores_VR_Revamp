@@ -10,6 +10,7 @@ public class GameResult : MonoBehaviour {
 	public string insert_premio_url;
 	int scoreToWin = 5000;
 	public string resultadoJugador;
+	public string fullString;
 
 	void Awake(){
 		instance = this;
@@ -65,23 +66,26 @@ public class GameResult : MonoBehaviour {
 			resultadoJugador = "PERDIO";
 		}
 
+		StartCoroutine (SendResultado ());
 	}
 
 	//Get
 	IEnumerator SendResultado(){
 
-		//PETICION
-		UnityWebRequest www = UnityWebRequest.Get( insert_premio_url +  
+		fullString = insert_premio_url +
 
-			"&n=" + DatosJugador.instance.nombreJugador +
-			"&t=" + DatosJugador.instance.ticketJugador +
-			"&c=" + DatosJugador.instance.cadenaSeleccionada +
-			"&p=" + DatosJugador.instance.premioSeleccionado +
-			"&r=" + resultadoJugador +
-			"&f=" + System.DateTime.Now.ToString() +
-			"&l=" + PostGameUI.instance.playerScore +
-			"&c=" + DatosJugador.instance.montoDeCompra +
-			"&a=" + DatosJugador.instance.productosComprados
+		"n=" + DatosJugador.instance.nombreJugador +
+		"&t=" + DatosJugador.instance.ticketJugador +
+		"&c=" + DatosJugador.instance.cadenaSeleccionada +
+		"&p=" + DatosJugador.instance.premioSeleccionado +
+		"&r=" + resultadoJugador +
+		"&f=" + System.DateTime.Now.ToString ("yyyyMMdd") +
+		"&l=" + PostGameUI.instance.playerScore +
+		"&m=" + DatosJugador.instance.montoDeCompra +
+		"&a=" + DatosJugador.instance.productosComprados;
+
+		//PETICION
+		UnityWebRequest www = UnityWebRequest.Get( fullString
 		);
 
 		yield return www.SendWebRequest();
@@ -89,10 +93,11 @@ public class GameResult : MonoBehaviour {
 
 		if(www.isNetworkError || www.isHttpError) {
 			Debug.Log(www.error);
+			//MESSAGE MESSAGE
 		}
 
 		else {
-
+			//MESSAGE GOES HERE TOO
 		}
 	}
 }

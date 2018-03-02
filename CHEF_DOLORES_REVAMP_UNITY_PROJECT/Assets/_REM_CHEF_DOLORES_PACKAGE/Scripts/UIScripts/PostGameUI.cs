@@ -53,7 +53,10 @@ public class PostGameUI : MonoBehaviour {
 		DisableInGamePanels ();
 		inGamePanels [1].SetActive (true);
 
+
+
 		//SWITCH SCENE
+		GameResult.instance.CheckResult();
 	}
 
 	void DisableInGamePanels(){
@@ -61,4 +64,5 @@ public class PostGameUI : MonoBehaviour {
 			item.SetActive (false);
 		}
 	}
+
 }
