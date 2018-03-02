@@ -64,17 +64,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36230f53304fc944299a340d84a3a734, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  get_premio_url: http://www.ispinnova.com.mx/app/get_premios.php?
-  insert_premio_url: http://www.ispinnova.com.mx/app/insert_premio.php?
-  plazasString: 
-  plazaList: []
-  stringSeparators:
-  - ','
-  - ' '
-  - .
-  stringToSplit: Mi nombre es remi storms soy un chingon
-  phrase: AsmaelisIs,Menostros,sjsjsjs jajajaja ultimate. spidey
-  words: []
 --- !u!114 &114884586475029796
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -90,7 +79,7 @@ MonoBehaviour:
   ticketJugador: 
   productosComprados: 
   montoDeCompra: 0
-  plazaSeleccionada: 
+  plazaSeleccionada: Dont Dstroy
   cadenaSeleccionada: 
   premioSeleccionado: 
   puntosObtenidos: 0

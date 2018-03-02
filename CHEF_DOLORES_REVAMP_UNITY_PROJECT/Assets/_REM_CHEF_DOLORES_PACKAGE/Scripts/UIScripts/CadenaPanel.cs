@@ -2,16 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Networking;
 
 public class CadenaPanel : MonoBehaviour {
 
-	public string testString;
+	public string cadenas_url;
 
 	public string[] cadenas;
 	public string[] separators;
 	public GameObject buttonPrefab;
 	public RectTransform buttonsParent;
 	public Button nextButton;
+
+	string cadenasDisponibles;
 
 	[SerializeField]
 	RectTransform resizeableScrollArea;
@@ -37,7 +40,7 @@ public class CadenaPanel : MonoBehaviour {
 
 	void Update(){
 		if (Input.GetKeyDown(KeyCode.C)) {
-			GetCadenaButtons (testString, separators);
+			//GetCadenaButtons (testString, separators);
 			Debug.Log ("Getting cadena buttons");
 		}
 	}
@@ -77,5 +80,50 @@ public class CadenaPanel : MonoBehaviour {
 
 	void Start(){
 		nextButton.interactable = false;
+	}
+
+	public void GetCadenas()
+	{
+		//Shows loading 
+		SecondaryCanvas.instance.ShowLoadingMessage ();
+		StartCoroutine(GetCadenasRoutine());
+	}
+
+	//Get
+	IEnumerator GetCadenasRoutine(){
+
+		UnityWebRequest www = UnityWebRequest.Get(cadenas_url +  "p=" + DatosJugador.instance.plazaSeleccionada);
+
+		yield return www.SendWebRequest();
+		yield return new WaitForSeconds (1.5f);
+
+		if(www.isNetworkError || www.isHttpError) {
+			Debug.Log(www.error);
+			SecondaryCanvas.instance.ShowErrorMessage ("OCURRIO UN ERROR: " + www.error);
+		}
+		else {
+			// Show results as text
+			cadenasDisponibles = www.downloadHandler.text;
+			//separates the long string based on selected separators and stores them inside plazas array
+			cadenas = cadenasDisponibles.Split (separators, System.StringSplitOptions.RemoveEmptyEntries);
+
+
+			//FOR EACH ELEMENT INSIDE PLAZAS ARRAY ->
+			for (int i = 0; i < cadenas.Length; i++) {
+				yield return new WaitForSeconds (0.05f);
+				//Creates a prefab and palce is inside the panel
+				GameObject instantiatedButton = Instantiate (buttonPrefab, buttonsParent.transform) as GameObject;
+				Button button = instantiatedButton.GetComponent<Button> ();
+				//changes the name and label
+				instantiatedButton.name = "Button_" + cadenas [i];
+				instantiatedButton.GetComponent<Button> ().onClick.AddListener (NextButtonActivator);
+				button.GetComponentInChildren<Text> ().text = cadenas [i];
+			}
+
+			//Hides loading 
+			SecondaryCanvas.instance.HideLoadingMessage ();
+
+			ResizeScrollArea ();
+		}
 	}
 }

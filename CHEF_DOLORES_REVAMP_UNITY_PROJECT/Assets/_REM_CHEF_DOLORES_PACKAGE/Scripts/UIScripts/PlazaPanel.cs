@@ -20,6 +20,8 @@ public class PlazaPanel : MonoBehaviour {
 
 	public void GetPlazaButtons(){
 	
+		//Shows loading 
+		SecondaryCanvas.instance.ShowLoadingMessage ();
 		StartCoroutine (GetPlazasRoutine ());
 
 	}
@@ -75,20 +77,28 @@ public class PlazaPanel : MonoBehaviour {
 
 	//Get
 	IEnumerator GetPlazasRoutine(){
+
+
 		UnityWebRequest www = UnityWebRequest.Get(plaza_url);
+
 		yield return www.SendWebRequest();
+		yield return new WaitForSeconds (1.5f);
 
 		if(www.isNetworkError || www.isHttpError) {
 			Debug.Log(www.error);
+			SecondaryCanvas.instance.ShowErrorMessage ("OCURRIO UN ERROR: " + www.error);
 		}
+
 		else {
 			// Show results as text
 			plazasDisponibles = www.downloadHandler.text;
 			//separates the long string based on selected separators and stores them inside plazas array
 			plazas = plazasDisponibles.Split (separators, System.StringSplitOptions.RemoveEmptyEntries);
+		
 
 			//FOR EACH ELEMENT INSIDE PLAZAS ARRAY ->
 			for (int i = 0; i < plazas.Length; i++) {
+				yield return new WaitForSeconds (0.05f);
 				//Creates a prefab and palce is inside the panel
 				GameObject instantiatedButton = Instantiate (buttonPrefab, buttonsParent.transform) as GameObject;
 				Button button = instantiatedButton.GetComponent<Button> ();
@@ -98,6 +108,7 @@ public class PlazaPanel : MonoBehaviour {
 				button.GetComponentInChildren<Text> ().text = plazas [i];
 			}
 
+			SecondaryCanvas.instance.HideLoadingMessage ();
 			ResizeScrollArea ();
 		}
 	}

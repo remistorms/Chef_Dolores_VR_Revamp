@@ -152,11 +152,22 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114884586475029796, guid: cca47fffb331a2348b56883f4bf508a1,
-        type: 2}
-      propertyPath: plazaSeleccionada
-      value: Dont Dstroy
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cca47fffb331a2348b56883f4bf508a1, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1995335320 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1401715520852176, guid: cca47fffb331a2348b56883f4bf508a1,
+    type: 2}
+  m_PrefabInternal: {fileID: 713382546}
+--- !u!114 &1995335321
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1995335320}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91a2a8ea88cae0946bc9a7ac10490683, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
