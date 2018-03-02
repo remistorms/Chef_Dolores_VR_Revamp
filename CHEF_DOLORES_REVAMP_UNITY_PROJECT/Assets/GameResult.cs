@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
+using UnityEngine.SceneManagement;
 
 public class GameResult : MonoBehaviour {
 
@@ -66,6 +67,7 @@ public class GameResult : MonoBehaviour {
 			resultadoJugador = "PERDIO";
 		}
 
+		DatosJugador.instance.resultadoDelJuego = resultadoJugador;
 		StartCoroutine (SendResultado ());
 	}
 
@@ -97,7 +99,9 @@ public class GameResult : MonoBehaviour {
 		}
 
 		else {
-			//MESSAGE GOES HERE TOO
+			//SNEDS YOU TO POST SCREEN
+			yield return new WaitForSeconds(10);
+			SceneManager.LoadScene(3);
 		}
 	}
 }

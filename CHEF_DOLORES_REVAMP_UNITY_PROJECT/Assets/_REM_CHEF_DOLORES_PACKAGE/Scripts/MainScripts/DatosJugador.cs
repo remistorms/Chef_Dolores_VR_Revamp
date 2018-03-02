@@ -15,9 +15,12 @@ public class DatosJugador : MonoBehaviour {
 	public string premioSeleccionado;
 	public int puntosObtenidos;
 
+	public string resultadoDelJuego;
+
 	void Awake()
 	{
 		instance = this;
+		resultadoDelJuego = "";
 	}
 
 
