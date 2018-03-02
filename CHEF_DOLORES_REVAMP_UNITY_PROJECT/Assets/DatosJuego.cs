@@ -6,7 +6,9 @@ public class DatosJuego : MonoBehaviour {
 
 	public static DatosJuego instance;
 
-	public Dictionary<string, int> datosIngredientes;
+	public List<int> ingredientsValues;
+
+	//public Dictionary<string, int> datosIngredientes;
 
 	void Awake(){
 		instance = this;

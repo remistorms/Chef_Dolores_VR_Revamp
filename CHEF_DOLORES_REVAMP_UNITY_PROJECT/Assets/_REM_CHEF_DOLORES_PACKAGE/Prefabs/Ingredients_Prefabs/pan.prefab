@@ -314,8 +314,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   esAtunDolores: 0
   name: pan
-  points: 60
-  timeToProcess: 3
+  points: 0
+  timeToProcess: 8
   icon: {fileID: 21300012, guid: 630e56eebd237e04693124509e918e58, type: 3}
 --- !u!135 &135534554965050184
 SphereCollider:

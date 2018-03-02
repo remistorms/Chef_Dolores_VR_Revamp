@@ -26,15 +26,19 @@ public class IngredientSpawner : MonoBehaviour {
 	}
 
 	void PlaceIngredients(){
+		//Clears any ingredients currently there
 		ClearIngredients ();
 		StartCoroutine (SpawnIngredientsRoutine ());
 	}
 
 	IEnumerator SpawnIngredientsRoutine(){
+
 		for (int i = 0; i < ingredientsToSpawn.Length; i++) {
 
 			GameObject spawnedIngredient = Instantiate (ingredientsToSpawn [i], spawningPoints [i].position, Quaternion.identity) as GameObject;
-			spawnedIngredient.name = spawnedIngredient.GetComponent<Ingredient> ().name;
+			string ingredientName = spawnedIngredient.GetComponent<Ingredient> ().name;
+
+			spawnedIngredient.GetComponent<Ingredient> ().points = DatosJuego.instance.ingredientsValues[i];
 			spawnedIngredients.Add (spawnedIngredient);
 			yield return new WaitForSeconds (0.1f);
 		}

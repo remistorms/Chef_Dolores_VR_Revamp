@@ -165,8 +165,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   esAtunDolores: 0
   name: limon
-  points: 5
-  timeToProcess: 1
+  points: 0
+  timeToProcess: 2
   icon: {fileID: 21300002, guid: 630e56eebd237e04693124509e918e58, type: 3}
 --- !u!114 &114432332676733232
 MonoBehaviour:

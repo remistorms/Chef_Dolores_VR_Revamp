@@ -8,7 +8,8 @@ public class IngredientsSetup : MonoBehaviour {
 
 	public string superString;
 	public string []ingredientes_puntos;
-	public List<string> ingredientes, puntos;
+	public List<string> ingredientes;
+	public List<int> puntos;
 	public string[] separators;
 
 	public string ingredients_url;
@@ -59,12 +60,12 @@ public class IngredientsSetup : MonoBehaviour {
 				//NONES
 				else 
 				{
-					puntos.Add (ingredientes_puntos [i]);
+					puntos.Add (int.Parse( ingredientes_puntos [i]));
 				}
 			}
 
 			//Saves the entire dictionary to the Persisten GO
-			DatosJuego.instance.datosIngredientes = ingredientsTable;
+			DatosJuego.instance.ingredientsValues = puntos;
 
 		}
 	}

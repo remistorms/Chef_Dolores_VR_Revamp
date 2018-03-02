@@ -164,8 +164,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   esAtunDolores: 0
   name: lechuga
-  points: 20
-  timeToProcess: 1
+  points: 0
+  timeToProcess: 5
   icon: {fileID: 21300008, guid: 630e56eebd237e04693124509e918e58, type: 3}
 --- !u!114 &114901255315823700
 MonoBehaviour:

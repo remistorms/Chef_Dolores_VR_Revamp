@@ -21,7 +21,7 @@ public class DataSaver : MonoBehaviour {
 
 	public void SubmitDatosCliente(){
 	
-		datosJugador.SetNombre (nombreLabel.text);
+		datosJugador.SetNombre (nombreLabel.text.ToUpper());
 		datosJugador.SetTicket (ticketLabel.text);
 		datosJugador.SetMonto (float.Parse (montoLabel.text));
 		datosJugador.SetCompra (productosLabel.text);

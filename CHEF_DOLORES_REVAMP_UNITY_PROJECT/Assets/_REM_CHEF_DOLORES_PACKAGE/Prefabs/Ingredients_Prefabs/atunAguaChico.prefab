@@ -164,7 +164,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   esAtunDolores: 1
   name: atunAguaChico
-  points: 100
+  points: 0
   timeToProcess: 5
   icon: {fileID: 21300022, guid: 630e56eebd237e04693124509e918e58, type: 3}
 --- !u!114 &114719007652126832

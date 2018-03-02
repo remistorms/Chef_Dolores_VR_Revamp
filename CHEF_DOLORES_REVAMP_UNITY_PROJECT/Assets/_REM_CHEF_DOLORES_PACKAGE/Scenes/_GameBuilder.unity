@@ -3105,6 +3105,7 @@ GameObject:
   - component: {fileID: 1036915301}
   - component: {fileID: 1036915300}
   - component: {fileID: 1036915304}
+  - component: {fileID: 1036915305}
   m_Layer: 5
   m_Name: PointsCanvas
   m_TagString: Untagged
@@ -3207,6 +3208,19 @@ MonoBehaviour:
   inGamePanels:
   - {fileID: 2025405654}
   - {fileID: 89244650}
+--- !u!114 &1036915305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1036915299}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bb6bfa9c9332e2408256a5f161f5bbe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  insert_premio_url: 
+  resultadoJugador: 
 --- !u!1 &1043217332
 GameObject:
   m_ObjectHideFlags: 0

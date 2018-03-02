@@ -166,8 +166,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   esAtunDolores: 0
   name: papas
-  points: 100
-  timeToProcess: 6
+  points: 0
+  timeToProcess: 5
   icon: {fileID: 21300004, guid: 630e56eebd237e04693124509e918e58, type: 3}
 --- !u!114 &114494587681565548
 MonoBehaviour:
