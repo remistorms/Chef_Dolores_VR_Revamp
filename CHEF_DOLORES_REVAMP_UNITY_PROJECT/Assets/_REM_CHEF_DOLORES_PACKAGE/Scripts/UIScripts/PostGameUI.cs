@@ -12,6 +12,7 @@ public class PostGameUI : MonoBehaviour {
 	public int playerScore = 0;
 
 	public GameObject[] inGamePanels;
+	public PostGameMenu postGameWindow;
 
 	void Awake(){
 		instance = this;
@@ -57,6 +58,8 @@ public class PostGameUI : MonoBehaviour {
 
 		//SWITCH SCENE
 		GameResult.instance.CheckResult();
+		postGameWindow.gameObject.SetActive (true);
+		//postGameWindow.ShowPostGameInfo ();
 	}
 
 	void DisableInGamePanels(){

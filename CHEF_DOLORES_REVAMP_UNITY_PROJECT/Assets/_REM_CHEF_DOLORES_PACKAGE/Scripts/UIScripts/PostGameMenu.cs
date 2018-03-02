@@ -3,18 +3,40 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.XR;
+using UnityEngine.SceneManagement;
 
 public class PostGameMenu : MonoBehaviour {
 
 	public Text textArea;
 	string infoString;
 
-	void Start()
-	{
-		ShowPreGameInfo ();
+	void OnEnable(){
+		StartCoroutine (EndRoutine ());
 	}
 
-	public void ShowPreGameInfo(){
+	IEnumerator EndRoutine(){
+	
+
+		ShowPostGameInfo ();
+
+		//Captures screenshot if setup initially
+		if (BootGO.instance.takeScreenshots) {
+			ScreenCapture.CaptureScreenshot ("CD_Screenshot_" + System.DateTime.Now);
+		}
+		//Just time to read
+		yield return new WaitForSeconds (10);
+
+		//Destroys Boot
+		BootGO.instance.DestroyBoot ();
+
+		//Loads first scene
+		SceneManager.LoadScene (0);
+
+	}
+
+	void ShowPostGameInfo(){
+
+		XRSettings.enabled = false;
 
 		//String to format the information
 		infoString = 
@@ -26,12 +48,11 @@ public class PostGameMenu : MonoBehaviour {
 			"Plaza: " + DatosJugador.instance.plazaSeleccionada + "\n" +
 			"Cadena: " + DatosJugador.instance.cadenaSeleccionada + "\n" +
 			"Premio: " + DatosJugador.instance.premioSeleccionado + "\n" +
-			"Resultado" + DatosJugador.instance.resultadoDelJuego + "\n" +
+			"Resultado: " + DatosJugador.instance.resultadoDelJuego + "\n" +
 			"--------------------"
 			;
 
 		textArea.text = infoString.ToUpper();
 
 	}
-
 }

@@ -14,6 +14,3 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_REM_CHEF_DOLORES_PACKAGE/Scenes/_GameBuilder.unity
     guid: 7969d24813a398a4c82910ea30b4c231
-  - enabled: 1
-    path: Assets/_REM_CHEF_DOLORES_PACKAGE/Scenes/PostGameScreen.unity
-    guid: 548443df12f83444fa8c9f89a19e32b2

@@ -8,13 +8,15 @@ public class BootGO : MonoBehaviour {
 
 	public static BootGO instance;
 
-	void Awake(){
-		InitializeBoot ();
+	public bool takeScreenshots = true;
+
+	/*void Awake(){
+		//InitializeBoot ();
 		DisableVR ();
 		SceneManager.LoadScene (1);
-	}
+	}*/
 
-	void InitializeBoot(){
+	void Awake(){
 		//Makes sure only one BootGO Exists
 		if (BootGO.instance == null) {
 			instance = this;
@@ -23,6 +25,8 @@ public class BootGO : MonoBehaviour {
 			Debug.Log ("Previously created boot already exists, destroying original one...SAD");
 		}
 		DontDestroyOnLoad (this.gameObject);
+		DisableVR ();
+		SceneManager.LoadScene (1);
 	}
 
 	public void DisableVR(){
@@ -31,5 +35,9 @@ public class BootGO : MonoBehaviour {
 
 	public void EnableVR(){
 		XRSettings.enabled = true;
+	}
+
+	public void DestroyBoot(){
+		Destroy (this.gameObject);
 	}
 }

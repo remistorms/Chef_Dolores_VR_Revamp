@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.SceneManagement;
+using UnityEngine.XR;
 
 public class GameResult : MonoBehaviour {
 
@@ -57,7 +58,7 @@ public class GameResult : MonoBehaviour {
 			scoreToWin = 1600;
 			break;
 
-		default:
+			default:
 			break;
 		}
 
@@ -69,6 +70,8 @@ public class GameResult : MonoBehaviour {
 
 		DatosJugador.instance.resultadoDelJuego = resultadoJugador;
 		StartCoroutine (SendResultado ());
+
+		//SceneManager.LoadScene(3);
 	}
 
 	//Get
@@ -100,8 +103,9 @@ public class GameResult : MonoBehaviour {
 
 		else {
 			//SNEDS YOU TO POST SCREEN
-			yield return new WaitForSeconds(10);
-			SceneManager.LoadScene(3);
+			//yield return new WaitForSeconds(5);
+			//SceneManager.LoadScene(3);
+			//XRSettings.enabled = false;
 		}
 	}
 }
